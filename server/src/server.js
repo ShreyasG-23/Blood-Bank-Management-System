@@ -5,6 +5,7 @@ require("dotenv").config();
 const pool = require("./config/db");
 const createTables = require("./database/initDb");
 const authRoutes = require("./routes/authRoutes");
+const bloodRequestRoutes = require("./routes/bloodRequestRoutes");
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/blood-requests",bloodRequestRoutes);
 app.get("/", async (req, res) => {
   try {
     const result = await pool.query("SELECT NOW()");
