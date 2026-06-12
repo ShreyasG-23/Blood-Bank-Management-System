@@ -1,4 +1,5 @@
 const pool = require("../config/db");
+const createBloodRequestTable = require("./createBloodRequestTable");
 
 const createTables = async () => {
   try {
@@ -17,6 +18,9 @@ const createTables = async () => {
     `);
 
     console.log("Users table created successfully");
+
+    await createBloodRequestTable();
+
   } catch (err) {
     console.error(err);
   }

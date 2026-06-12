@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    window.location.href = "/login";
+  };
+
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
+
         <Link
           to="/"
           className="text-3xl font-bold text-red-600"
@@ -13,6 +22,7 @@ function Navbar() {
         </Link>
 
         <div className="flex gap-6 items-center">
+
           <Link to="/" className="hover:text-red-600">
             Home
           </Link>
@@ -25,15 +35,31 @@ function Navbar() {
             Request
           </Link>
 
-          <div className="flex gap-3">
-          <Link to="/login" className="bg-red-600 text-white px-4 py-2 rounded-lg">
-           Login
-          </Link>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900"
+            >
+              Logout
+            </button>
+          ) : (
+            <div className="flex gap-3">
+              <Link
+                to="/login"
+                className="bg-red-600 text-white px-4 py-2 rounded-lg"
+              >
+                Login
+              </Link>
 
-          <Link to="/register" className="border border-red-600 text-red-600 px-4 py-2 rounded-lg">
-            Register
-          </Link>
-         </div>
+              <Link
+                to="/register"
+                className="border border-red-600 text-red-600 px-4 py-2 rounded-lg"
+              >
+                Register
+              </Link>
+            </div>
+          )}
+
         </div>
       </div>
     </nav>
