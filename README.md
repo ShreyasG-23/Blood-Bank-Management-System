@@ -97,7 +97,7 @@ Blood-Bank-Management-System
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/Shreyasgng13/Blood-Bank-Management-System.git
+git clone https://github.com/ShreyasG-23/Blood-Bank-Management-System.git
 cd Blood-Bank-Management-System
 ```
 
