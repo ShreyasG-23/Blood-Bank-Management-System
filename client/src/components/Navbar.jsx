@@ -27,6 +27,13 @@ function Navbar() {
             Home
           </Link>
 
+          {user?.role === "admin" && (
+            <Link to="/admin" className="hover:text-red-600 font-semibold">
+              Admin
+            </Link>
+          )
+          }
+
           <Link to="/donors" className="hover:text-red-600">
             Donors
           </Link>
