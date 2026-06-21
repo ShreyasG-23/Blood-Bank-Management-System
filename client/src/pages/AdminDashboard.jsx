@@ -106,6 +106,14 @@ function AdminDashboard() {
                         </h3>
                     </div>
 
+                    
+                    <div className="flex">
+                        <AdminSidebar />
+
+                        <div className="flex-1 p-8">
+                            Dashboard Content
+                        </div>
+                    </div>
                 </div>
 
                 <h2 className="text-3xl font-bold mb-6">

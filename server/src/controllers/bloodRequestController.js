@@ -57,6 +57,7 @@ const getBloodRequests = async (req, res) => {
     });
   }
 };
+
 const updateRequestStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -83,10 +84,36 @@ const updateRequestStatus = async (req, res) => {
   }
 };
 
+const getUserRequests = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const result = await pool.query(
+      `
+      SELECT *
+      FROM blood_requests
+      WHERE user_id = $1
+      ORDER BY created_at DESC
+      `,
+      [userId]
+    );
+
+    res.status(200).json(result.rows);
+
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "Server Error",
+    });
+  }
+};
+
 
 
 module.exports = {
   createBloodRequest,
   getBloodRequests,
   updateRequestStatus,
+  getUserRequests,
 };  

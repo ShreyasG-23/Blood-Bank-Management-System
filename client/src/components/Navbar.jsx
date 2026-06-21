@@ -41,6 +41,12 @@ function Navbar() {
           <Link to="/request-blood" className="hover:text-red-600">
             Request
           </Link>
+          <Link to="/profile" className="hover:text-red-600">
+            Profile
+          </Link>
+          <Link to="/my-requests" className="hover:text-red-600">
+            My Requests
+          </Link>
 
           {user ? (
             <button
