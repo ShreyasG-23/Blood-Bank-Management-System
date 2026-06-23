@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import AdminSidebar from "../components/AdminSidebar";
 
 function AdminDashboard() {
     const [stats, setStats] = useState({});

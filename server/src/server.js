@@ -35,6 +35,14 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/test-reset-table", async (req, res) => {
+  const result = await pool.query(
+    "SELECT * FROM password_resets"
+  );
+
+  res.json(result.rows);
+});
+
 const PORT = process.env.PORT || 5000;
 
 createTables();
