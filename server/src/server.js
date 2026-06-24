@@ -9,6 +9,7 @@ const bloodRequestRoutes = require("./routes/bloodRequestRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 const inventoryRoutes = require("./routes/inventoryRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use("/api/blood-requests",bloodRequestRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/inventory", inventoryRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+
 app.get("/", async (req, res) => {
   try {
     const result = await pool.query("SELECT NOW()");
